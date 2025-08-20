@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in to NeonTek</title>
+    <link rel="stylesheet" href="/css/oauth.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="/neontek-logo.png" alt="NeonTek Logo">
+            <% if (client) { %>
+                <p>Sign in to continue to <strong class="client-name"><%= client.name %></strong></p>
+            <% } %>
+        </div>
+
+        <% if (error) { %>
+            <p class="error"><%= error %></p>
+        <% } %>
+
+        <form action="/oauth/login" method="POST">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn-primary">Continue</button>
+        </form>
+    </div>
+</body>
+</html>

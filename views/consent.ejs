@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authorize <%= client.name %></title>
+    <link rel="stylesheet" href="/css/oauth.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="/neontek-logo.png" alt="NeonTek Logo">
+        </div>
+
+        <div class="user-info">
+            <span class="email"><%= user.email %></span>
+        </div>
+        
+        <p class="header-p">
+            <strong class="client-name"><%= client.name %></strong> wants to access your NeonTek account.
+        </p>
+
+        <div class="permissions">
+            <h3>This will allow this application to:</h3>
+            <ul>
+                <li>View your basic profile information (name, email)</li>
+                </ul>
+        </div>
+        
+        <form action="/oauth/consent" method="POST">
+            <div class="actions">
+                <button type="submit" name="action" value="deny" class="btn-secondary">Cancel</button>
+                <button type="submit" name="action" value="allow" class="btn-primary">Allow</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

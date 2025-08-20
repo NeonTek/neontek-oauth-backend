@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Redirecting...</title>
+    
+    <meta http-equiv="refresh" content="0; url=<%= redirectUrl %>" />
+
+    <style>
+        body { font-family: sans-serif; text-align: center; padding-top: 5rem; }
+        a { color: #4f46e5; }
+    </style>
+</head>
+<body>
+    <h1>Redirecting...</h1>
+    <p>You are being redirected back to the application.</p>
+    <p>
+        If you are not redirected automatically, 
+        <a href="<%= redirectUrl %>">click here to continue</a>.
+    </p>
+
+    <script>
+        window.location.href = "<%- redirectUrl %>";
+    </script>
+</body>
+</html>
