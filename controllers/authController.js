@@ -241,7 +241,7 @@ exports.requestMagicLink = async (req, res, next) => {
     await user.save();
 
     // Send the email
-    const backendUrl = `http://localhost:${process.env.PORT || 5000}`;
+    const backendUrl = `https://neontek-oauth.onrender.com`;
     const magicLink = `${backendUrl}/api/auth/verify-magic-link?token=${rawToken}`;
     const subject = 'Your Magic Login Link for NeonTek';
     const text = `Hello ${user.name || ''},\n\nClick this link to log in to your NeonTek account:\n\n${magicLink}\n\nThis link will expire in 15 minutes.\n\nIf you did not request this, please ignore this email.`;
