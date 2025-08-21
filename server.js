@@ -40,7 +40,7 @@ app.use(express.urlencoded({ extended: true }));
 // CORS Configuration
 app.use(
   cors({
-    origin: 'http://localhost:3000',
+    origin: 'https://oauth.neontek.co.ke',
     credentials: true,
   })
 );

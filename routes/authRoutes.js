@@ -25,7 +25,7 @@ router.get('/google', passport.authenticate('google', { scope: ['profile', 'emai
 router.get(
   '/google/callback',
   passport.authenticate('google', {
-    failureRedirect: `${process.env.FRONTEND_URL || 'http://localhost:3000'}/login?error=google-auth-failed`,
+    failureRedirect: `${process.env.FRONTEND_URL || 'https://oauth.neontek.co.ke'}/login?error=google-auth-failed`,
     session: false,
   }),
   socialAuthController.googleCallback

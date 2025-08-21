@@ -164,7 +164,7 @@ exports.signup = async (req, res, next) => {
     await user.save();
 
     try {
-      const frontend = process.env.FRONTEND_URL || 'http://localhost:3000';
+      const frontend = process.env.FRONTEND_URL || 'https://oauth.neontek.co.ke';
       const verifyUrl = `${frontend.replace(/\/$/, '')}/verify-email?token=${rawToken}&email=${encodeURIComponent(user.email)}`;
       const subject = 'Verify your NeonTek email';
       const text = `Hi ${user.name || user.email},
@@ -293,7 +293,7 @@ exports.verifyMagicLink = async (req, res, next) => {
 
     res.cookie(COOKIE_NAME, tokenValue, cookieOptions());
 
-    const frontendRedirectUrl = `${process.env.FRONTEND_URL || 'http://localhost:3000'}/auth/callback?accessToken=${accessToken}`;
+    const frontendRedirectUrl = `${process.env.FRONTEND_URL || 'https://oauth.neontek.co.ke'}/auth/callback?accessToken=${accessToken}`;
     res.redirect(frontendRedirectUrl);
 
   } catch (err) {
@@ -609,7 +609,7 @@ exports.verifyEmail = async (req, res, next) => {
       userAgent: req.get('User-Agent') || ''
     });
 
-    const redirectUrl = (process.env.FRONTEND_URL || 'http://localhost:3000') + '/verified';
+    const redirectUrl = (process.env.FRONTEND_URL || 'https://oauth.neontek.co.ke') + '/verified';
     if (req.accepts('html')) {
       return res.redirect(302, redirectUrl);
     }
@@ -639,7 +639,7 @@ exports.resendVerification = async (req, res, next) => {
 
     // send mail
     try {
-      const frontend = process.env.FRONTEND_URL || 'http://localhost:3000';
+      const frontend = process.env.FRONTEND_URL || 'https://oauth.neontek.co.ke';
       const verifyUrl = `${frontend.replace(/\/$/, '')}/verify-email?token=${rawToken}&email=${encodeURIComponent(user.email)}`;
       const subject = 'Verify your NeonTek email';
       const text = `Hi ${user.name || user.email}, please verify: ${verifyUrl}`;

@@ -48,7 +48,7 @@ exports.googleCallback = async (req, res, next) => {
     user.lastLoginAt = new Date();
     await user.save();
     
-    const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:3000';
+    const frontendUrl = process.env.FRONTEND_URL || 'https://oauth.neontek.co.ke';
     res.redirect(`${frontendUrl}/auth/callback?accessToken=${accessToken}`);
   } catch (err) {
     next(err);
