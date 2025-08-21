@@ -475,7 +475,7 @@ This is a confirmation that the password for your NeonTek account (${user.email}
 If you changed your password, no action is needed.
 
 If you did NOT change your password, immediately reset it here:
-https://accounts.neontek.co.ke/forgot-password
+https://oauth.neontek.co.ke/forgot-password
 
 IP: ${req.ip}
 Time: ${new Date().toISOString()}
@@ -486,7 +486,7 @@ NeonTek Security Team
       const html = `<p>Hi ${user.name || user.email},</p>
 <p>This is a confirmation that the password for your NeonTek account (<strong>${user.email}</strong>) was recently changed.</p>
 <p><strong>If you changed your password</strong>, no action is needed.</p>
-<p><strong>If you did <em>not</em> change your password</strong>, immediately reset it by visiting <a href="https://accounts.neontek.co.ke/forgot-password">this link</a>.</p>
+<p><strong>If you did <em>not</em> change your password</strong>, immediately reset it by visiting <a href="https://oauth.neontek.co.ke/forgot-password">this link</a>.</p>
 <ul>
 <li>IP: ${req.ip}</li>
 <li>Time: ${new Date().toLocaleString()}</li>
